@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PH Tube</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+
+  <!-- Tailwind & Daisy UI CDN link -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Customized Utilities -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "red-button": "#FF1F3D",
+            "header": "#171717",
+          },
+        },
+        fontFamily: {
+          'inter': ['Inter', 'sans-serif'],
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts Work Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body class="text-header text-base font-inter">
+  <header class="px-5 sm:px-[60px]">
+    <nav class="sm:pt-[50px] pb-8 border-b-2">
+      <div class="navbar ps-0">
+        <div class="navbar-start">
+          <a class="btn px-0 btn-ghost btn-xs sm:btn-md"><img class="max-w-[25vw]" src="./assets/Logo.png"
+              alt="logo"></a>
+        </div>
+        <div class="navbar-center">
+          <button id="sortData" onclick="sorter(true)"
+            class="max-w-[50vw] btn-xs sm:btn-md btn normal-case bg-gray-600/20 text-gray-600 text-xs sm:text-lg font-medium">Sort
+            by
+            view</button>
+        </div>
+        <div class="navbar-end">
+          <a href="./blog.html"
+            class="max-w-[25vw] btn btn-xs sm:btn-md normal-case bg-red-500 text-white text-xs sm:text-lg font-medium">Blog</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="px-[15vw]">
+    <div class="join join-vertical max-w-[70vw] my-10">
+      <div class="collapse collapse-plus join-item border border-base-300">
+        <input type="radio" name="my-accordion-4" />
+        <div class="collapse-title text-xl font-medium">
+          Discussion over the scope of var, let, and const
+        </div>
+        <div class="collapse-content">
+          <dl class="border p-5">
+            <dt class="border-b-2 font-bold italic text-xl">var</dt>
+            <dd class="py-5">
+              <ol class="list-inside list-decimal leading-loose text-lg">
+                <li>The 'var' keyword is used to declare a variable as a global variable since early js, meaning it can
+                  be used outside the
+                  scope of the declaration. This property is cause of various pros and cons, such as avoiding variable
+                  scope
+                  errors or conflicts with variable names.</li>
+                <li>It would be hoisted to top of the script without initializations if declared anywhere in the script
+                </li>
+                <li>It can be re-declared or reassigned without any errors</li>
+              </ol>
+            </dd>
+
+            <dt class="border-b-2 font-bold italic text-xl">let</dt>
+            <dd class="py-5">
+              <ol class="list-inside list-decimal leading-loose text-lg">
+                <li>The 'let' keyword is used to declare a variable as a local variable since 2015, meaning it
+                  can't be used outside the
+                  scope of the declaration.</li>
+                <li>It wouldn't be hoisted to top of the script but top of the scope without
+                  initializations if declared anywhere in the scope i.e function or script or document.</li>
+                <li>It can't be re-declared for 'Cannot redeclare block-scope variable' but can reassigned without any
+                  errors </li>
+              </ol>
+            </dd>
+
+            <dt class="border-b-2 font-bold italic text-xl">const</dt>
+            <dd class="py-5">
+              <ol class="list-inside list-decimal leading-loose text-lg">
+                <li>The 'let' keyword is used to declare a variable as a local variable since 2015, meaning it
+                  can't be used outside the
+                  scope of the declaration.</li>
+                <li>It wouldn't be hoisted to top of the script but top of the scope without
+                  initializations if declared anywhere in the scope i.e function or script or document.</li>
+                <li>It can't be re-declared for 'Cannot redeclare block-scope variable' nor reassigned.</li>
+                <li>It contains only unchanged value. But in non-primitive value, we can change the value of an entry
+                  without any error.</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="collapse collapse-plus join-item border border-base-300">
+        <input type="radio" name="my-accordion-4" />
+        <div class="collapse-title text-xl font-medium">
+          the use cases of null and undefined
+        </div>
+        <div class="collapse-content">
+          <dl class="border p-5">
+            <dt class="border-b-2 font-bold italic text-xl">null</dt>
+            <dd class="py-5">
+              <ol class="list-inside list-decimal leading-loose text-lg">
+                <li>The type of a null valued variable is object - a non-primitive type</li>
+                <li>Any variables can assigned to null if one don't want to set any value intensionally</li>
+                <li>To reset objects / variables, sometimes we use to set null to the objects / variables</li>
+                <li>Any parameters in a function without passing the values can set to null by default</li>
+                <li>One can set null to an array element for lack of the element value</li>
+                <li>null often used in conditional statements</li>
+              </ol>
+            </dd>
+
+            <dt class="border-b-2 font-bold italic text-xl">undefined</dt>
+            <dd class="py-5">
+              <ol class="list-inside list-decimal leading-loose text-lg">
+                <li>The type of a undefined variable is undefined - a primitive type</li>
+                <li>Any variables is assigned to undefined if not initialized by default</li>
+                <li>To reset variables, sometimes we use set undefined to the variable</li>
+                <li>Any parameters in a function without passing the values are set to undefined by default</li>
+                <li>Any function that return nothing is return undefined by default</li>
+                <li>undefined often used in conditional statements</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="collapse collapse-plus join-item border border-base-300">
+        <input type="radio" name="my-accordion-4" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+          The meaning of REST API
+        </div>
+        <div class="collapse-content">
+          <p>hello</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
+
+</html>
