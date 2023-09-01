@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Title Goes Here</title>
+  <title>PH Tube</title>
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
 
   <!-- Tailwind & Daisy UI CDN link -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-   <!-- Customized Utilities -->
-   <script>
+  <!-- Customized Utilities -->
+  <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            "header": "#111111",
-            "body": "#585858",
+            "red-button": "#FF1F3D",
+            "header": "#171717",
           },
         },
         fontFamily: {
@@ -38,20 +38,41 @@
   <!-- Google Fonts Work Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/d7b7563d24.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-  <header>
-    <nav></nav>
+<body class="text-gray-600/70 text-base">
+  <header class="px-[60px]">
+    <nav class="pt-[50px] pb-8 border-b-2">
+      <div class="navbar bg-base-100 ps-0">
+        <div class="navbar-start">
+          <a class="btn px-0 btn-ghost normal-case text-xl"><img src="./assets/Logo.png" alt="logo"></a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <button class="btn normal-case bg-gray-600/20 text-lg font-medium">Sort by view</button>
+        </div>
+        <div class="navbar-end">
+          <a href="./blog.html" class="btn normal-case bg-red-600 text-white text-lg font-medium">Blog</a>
+        </div>
+      </div>
+    </nav>
   </header>
-  <main>
-    <section></section>
+  <main class="px-[60px]">
+    <section>
+      <div id="buttons" class="flex justify-center gap-6 pt-8 pb-10">
+      </div>
+    </section>
+    <section>
+      <div id="videoContainer"></div>
+    </section>
   </main>
   <footer></footer>
+
+  <script src="./js/ph-tube.js"></script>
 </body>
 
 </html>
