@@ -25,11 +25,7 @@
           },
         },
         fontFamily: {
-          'work-sans': ['Work Sans', 'sans-serif'],
           'inter': ['Inter', 'sans-serif'],
-        },
-        container: {
-          center: true,
         },
       },
     };
@@ -41,11 +37,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/d7b7563d24.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="text-gray-600/70 text-base">
+<body class="text-header/70 text-base font-inter">
   <header class="px-[60px]">
     <nav class="pt-[50px] pb-8 border-b-2">
       <div class="navbar bg-base-100 ps-0">
@@ -53,19 +47,29 @@
           <a class="btn px-0 btn-ghost normal-case text-xl"><img src="./assets/Logo.png" alt="logo"></a>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <button class="btn normal-case bg-gray-600/20 text-lg font-medium">Sort by view</button>
+          <button onclick="sorter(true)" class="btn normal-case bg-gray-600/20 text-gray-600 text-lg font-medium">Sort
+            by
+            view</button>
         </div>
         <div class="navbar-end">
-          <a href="./blog.html" class="btn normal-case bg-red-600 text-white text-lg font-medium">Blog</a>
+          <a href="./blog.html" class="btn normal-case bg-red-500 text-white text-lg font-medium">Blog</a>
         </div>
       </div>
     </nav>
   </header>
   <main class="px-[60px]">
+    <!-- categories -->
     <section>
       <div id="buttons" class="flex justify-center gap-6 pt-8 pb-10">
       </div>
     </section>
+
+    <!-- loader -->
+    <section id="loader" class="h-[calc(100vh-268px)] grid justify-center items-center hidden">
+      <span class="loading loading-spinner loading-lg text-secondary"></span>
+    </section>
+
+    <!-- videos -->
     <section>
       <div id="videoContainer"></div>
     </section>
