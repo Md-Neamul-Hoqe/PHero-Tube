@@ -40,11 +40,13 @@
 </head>
 
 <body class="text-header text-base font-inter">
+  <!-- NAV BAR HEADER SECTION -->
   <header class="px-5 sm:px-[60px]">
     <nav class="sm:pt-[50px] pb-8 border-b-2">
       <div class="navbar ps-0">
         <div class="navbar-start">
-          <a href="./index.html" class="btn px-0 btn-ghost btn-xs sm:btn-md"><img class="max-w-[25vw]" src="./assets/Logo.png"
+          <a href="./index.html" class="btn px-0 btn-ghost btn-xs sm:btn-md"><img class="max-w-[25vw]"
+              src="./assets/Logo.png"
               alt="logo"></a>
         </div>
         <div class="navbar-end">
@@ -54,111 +56,142 @@
       </div>
     </nav>
   </header>
+
+  <!-- MAIN BODY SECTION -->
   <main class="px-[15vw]">
     <div class="join join-vertical max-w-[70vw] my-10">
+
+      <!-- FIRST QUESTION -->
       <div class="collapse collapse-plus join-item border border-base-300">
-        <input type="radio" name="my-accordion-4" />
-        <div class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
+        <input type="radio" name="my-accordion-4" checked="checked" />
+        <div
+          class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
           Discussion over the scope of var, let, and const
         </div>
-        <div class="collapse-content bg-gradient-to-b from-red-button/25 to-header/15">
-          <dl class="border p-5 bg-base-100">
+        <div class="collapse-content rounded-none bg-gradient-to-b from-red-button/25 to-header/15">
+          <dl class="border p-5 bg-base-100 border-red-600">
             <dt class="border-b-2 font-bold italic text-xl">var</dt>
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>The 'var' keyword is used to declare a variable as a global variable since early js, meaning it can
-                  be used outside the
-                  scope of the declaration. This property is cause of various pros and cons, such as avoiding variable
-                  scope
-                  errors or conflicts with variable names.</li>
-                <li>It would be hoisted to top of the script without initializations if declared anywhere in the script
+                <li>The 'var' keyword in JavaScript is used to declare a variable with function scope or, when declared
+                  outside of any function, with global scope. This property has both advantages and disadvantages,
+                  including the ability to use the variable outside of the block scope where it's declared, which can
+                  help avoid variable scope errors or conflicts with same variable names.</li>
+                <li>If a variable declared with the 'var' keyword is encountered anywhere within a script, it will be
+                  hoisted to the top of its containing function or script without its value being initialized at that
+                  point i.e it take the value 'undefined' initially.
                 </li>
-                <li>It can be re-declared or reassigned without any errors</li>
+                <li>Variables can be re-declared or reassigned without causing errors</li>
               </ol>
             </dd>
 
             <dt class="border-b-2 font-bold italic text-xl">let</dt>
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>The 'let' keyword is used to declare a variable as a local variable since 2015, meaning it
-                  can't be used outside the
-                  scope of the declaration.</li>
-                <li>It wouldn't be hoisted to top of the script but top of the scope without
-                  initializations if declared anywhere in the scope i.e function or script or document.</li>
-                <li>It can't be re-declared for 'Cannot redeclare block-scope variable' but can reassigned without any
-                  errors </li>
+                <li>"The 'let' keyword is used to declare a variable as a block-scoped variable since 2015, which means
+                  it cannot be used outside the scope of the declaration.</li>
+                <li>Unlike 'var', 'let' variables are not hoisted to the top of the script, but they are hoisted to the
+                  top of their containing scope without being initialized if declared anywhere within that scope (e.g.,
+                  a function or script).</li>
+                <li>A 'let' variable cannot be re-declared within the same scope, and attempting to do so will result in
+                  a 'Cannot redeclare block-scoped variable' error. However, it can be reassigned without any errors.
+                </li>
               </ol>
             </dd>
 
             <dt class="border-b-2 font-bold italic text-xl">const</dt>
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>The 'let' keyword is used to declare a variable as a local variable since 2015, meaning it
-                  can't be used outside the
-                  scope of the declaration.</li>
-                <li>It wouldn't be hoisted to top of the script but top of the scope without
-                  initializations if declared anywhere in the scope i.e function or script or document.</li>
-                <li>It can't be re-declared for 'Cannot redeclare block-scope variable' nor reassigned.</li>
-                <li>It contains only unchanged value. But in non-primitive value, we can change the value of an entry
-                  without any error.</li>
+                <li>The 'const' keyword is used to declare a variable with block scope since 2015, meaning it cannot be
+                  used outside the scope of the declaration.</li>
+                <li>Unlike 'var', a 'const' variable is not hoisted to the top of the script or function. Instead, it's
+                  hoisted to the top of its scope, and it must be initialized when declared. If declared without
+                  initialization, it will result in a syntax error.</li>
+                <li>A 'const' variable cannot be re-declared within the same scope, and it cannot be reassigned after
+                  its initial value is set. Attempting to redeclare a 'const' variable will result in a 'Cannot
+                  redeclare block-scoped variable' error.</li>
+                <li>When a 'const' variable holds a primitive value (like a number or string), that value cannot be
+                  changed after initialization. However, if a 'const' variable holds a non-primitive value (like an
+                  object or array), you can modify the properties or elements of that value without any error, as long
+                  as you don't attempt to reassign the variable itself.</li>
               </ol>
             </dd>
           </dl>
         </div>
       </div>
+
+      <!-- SECOND QUESTION -->
       <div class="collapse collapse-plus join-item border border-base-300">
         <input type="radio" name="my-accordion-4" />
-        <div class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
+        <div
+          class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
           the use cases of null and undefined
         </div>
-        <div class="collapse-content bg-gradient-to-b from-red-button/25 to-header/15">
-          <dl class="border p-5 bg-base-100">
+        <div class="collapse-content rounded-none bg-gradient-to-b from-red-button/25 to-header/15">
+          <dl class="border p-5 bg-base-100 border-red-600">
             <dt class="border-b-2 font-bold italic text-xl">null</dt>
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>The type of a null valued variable is object - a non-primitive type</li>
-                <li>Any variables can assigned to null if one don't want to set any value intensionally</li>
-                <li>To reset objects / variables, sometimes we use to set null to the objects / variables</li>
-                <li>Any parameters in a function without passing the values can set to null by default</li>
-                <li>One can set null to an array element for lack of the element value</li>
-                <li>null often used in conditional statements</li>
+                <li>The type of a variable assigned a value of null is 'object,' which is a non-primitive type in
+                  JavaScript.</li>
+                <li>We can assign the value null to any variable when you intentionally want to indicate the absence of
+                  a value.</li>
+                <li>Null is often used to reset objects or variables, effectively clearing their value or reference.
+                </li>
+                <li>null & undefined are same in value but deference in type</li>
+                <li>We can set an individual element within an array to null when there is a lack of a specific value
+                  for that element.</li>
+                <li>Null is commonly used in conditional statements to check if a variable or value is absent or
+                  uninitialized.</li>
               </ol>
             </dd>
 
             <dt class="border-b-2 font-bold italic text-xl">undefined</dt>
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>The type of a undefined variable is undefined - a primitive type</li>
-                <li>Any variables is assigned to undefined if not initialized by default</li>
-                <li>To reset variables, sometimes we use set undefined to the variable</li>
-                <li>Any parameters in a function without passing the values are set to undefined by default</li>
-                <li>Any function that return nothing is return undefined by default</li>
-                <li>undefined often used in conditional statements</li>
+                <li>The type of an undefined variable is 'undefined,' which is a primitive type in JavaScript.</li>
+                <li>Variables are assigned the value 'undefined' if they are declared but not initialized. This is the
+                  default behavior in JavaScript.</li>
+                <li>Undefined is sometimes used to indicate that a variable has no assigned value or to reset variables
+                  to their uninitialized state.</li>
+                <li>In JavaScript, function parameters that are not provided with values during a function call are
+                  automatically set to 'undefined' by default.</li>
+                <li>A function that doesn't explicitly return a value will return 'undefined' by default.</li>
+                <li>'Undefined' is commonly used in conditional statements to check if a variable has no value or is
+                  uninitialized.</li>
+                <li>The array or object will return undefined for missing index or key</li>
               </ol>
             </dd>
           </dl>
         </div>
       </div>
+
+      <!-- THIRD QUESTION -->
       <div class="collapse collapse-plus join-item border border-base-300">
-        <input type="radio" name="my-accordion-4" checked="checked" />
-        <div class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
+        <input type="radio" name="my-accordion-4" />
+        <div
+          class="collapse-title italic bg-gradient-to-b from-header/25 to-header/15 border-4 border-red-600 text-xl font-medium">
           The meaning of REST API
         </div>
-        <div class="collapse-content bg-gradient-to-b from-red-button/25 to-header/15">
-          <dl class="border p-5 bg-base-100">
+        <div class="collapse-content rounded-none bg-gradient-to-b from-red-button/25 to-header/15">
+          <dl class="border p-5 bg-base-100 border-red-600">
             <dd class="py-5">
               <ol class="list-inside list-decimal leading-loose text-lg">
-                <li>Here REST API full form is REpresentational State Transfer Application Programming Interface.</li>
-                <li>which characterized by being stateless meaning [each interaction or request between a client and a
-                  server should contain all the information necessary for the server to understand and process]</li>
-                <li>which using HTTP methods for operations on resources</li>
-                <li>It has uniform interface [i.e. the API follows a consistent and standardized set of rules and
-                  conventions for interacting with resources]</li>
-                <li>It uses standard HTTP methods [GET, POST, PUT, DELETE, etc.] to perform the CRUD</li>
-                <li>everything considered as resources</li>
-                <li>the Resources are identified by URIs (Uniform Resource Identifiers).</li>
-                <li>RESTful messages are self-descriptive</li>
-                <li>APIs are navigate with hyperlinks</li>
+                <li>The full form of REST API is "REpresentational State Transfer Application Programming Interface."
+                </li>
+                <li>REST APIs are characterized by being stateless, which means that each interaction or request between
+                  a client and a server should contain all the information necessary for the server to understand and
+                  process it.</li>
+                <li>REST APIs use HTTP methods for performing operations on resources.</li>
+                <li>They have a uniform interface, meaning the API follows a consistent and standardized set of rules
+                  and conventions for interacting with resources.</li>
+                <li>REST APIs use standard HTTP methods such as GET, POST, PUT, DELETE, etc., to perform CRUD (Create,
+                  Read, Update, Delete) operations.</li>
+                <li>In REST, everything is considered as a resource.</li>
+                <li>Resources in REST are identified by URIs (Uniform Resource Identifiers).</li>
+                <li>RESTful messages are self-descriptive, meaning the messages themselves contain information about how
+                  to process them.</li>
+                <li>APIs in a RESTful architecture can be navigated using hyperlinks.</li>
               </ol>
             </dd>
           </dl>

@@ -1,15 +1,9 @@
-/* Questions */
-// Discuss the scope of var, let, and const
-// Tell us the use cases of null and undefined
-// What do you mean by REST API?
-
-/* getting the elements by id's */
+/* GETTING THE ELEMENTS BY id's */
 const loadingToggle = document.getElementById("loader");
 const btnContainer = document.getElementById("buttons");
 const videoContainer = document.getElementById("videoContainer");
 
 let currentId = 1000;
-// isSorted = false;
 
 const loadCategories = async (id = currentId) => {
   loadingToggle.classList.remove("hidden");
@@ -27,62 +21,7 @@ const loadCategories = async (id = currentId) => {
   }
 };
 
-/* set categories as buttons */
-const showButtons = (data, id) => {
-  currentId = id;
-
-  btnContainer.innerHTML = "";
-
-  data.forEach((cat) => {
-    const currentBtn = cat.category_id == currentId;
-    // console.log(currentBtn, typeof cat.category_id, typeof currentId);
-
-    const btn = document.createElement("a");
-    btn.setAttribute("id", cat.category_id);
-    btn.setAttribute(
-      "class",
-      `btn ${
-        currentBtn
-          ? "bg-red-button text-white font-semibold"
-          : "bg-gray-600/15 text-gray-600 font-medium"
-      } hover:bg-red-button hover:text-white hover:font-semibold`
-    );
-    btn.setAttribute(
-      "onclick",
-      `loadCategories('${cat.category_id}'); loadData('${cat.category_id}', false)`
-    );
-    btn.innerText = cat.category;
-    btnContainer.appendChild(btn);
-  });
-};
-
-const updateData = (id) => {
-  console.log(id);
-
-  Array.from(btnContainer.children).forEach((btn) => {
-    // console.log(btn.classList.contains("bg-red-button"));
-    // if (btn.classList.contains(`bg-red-button`)) {
-    btn.className.replace(" bg-red-button", " bg-gray-600/15");
-    btn.className.replace(" text-white", " text-gray-600");
-    btn.className.replace(" font-semibold", " font-medium");
-    // btn.classList.add("bg-gray-600/15");
-    // btn.classList.remove("bg-red-button");
-    // btn.classList.add("");
-    // btn.classList.remove("");
-    // btn.classList.add("");
-    // btn.classList.remove("");
-    // }
-
-    if (currentId == id) {
-      btn.className.replace(" bg-gray-600/15", " bg-red-button");
-      btn.className.replace(" text-gray-600", " text-white");
-      btn.className.replace(" font-medium", " font-semibold");
-    }
-  });
-  console.log(btnContainer.children);
-};
-
-/* To load data */
+/* TO LOAD DATA */
 const loadData = async (id = 1000, isSorting = false) => {
   try {
     /* Clean the video container */
@@ -117,6 +56,36 @@ const loadData = async (id = 1000, isSorting = false) => {
   }
 };
 
+/* SET CATEGORIES AS BUTTONS */
+const showButtons = (data, id) => {
+  currentId = id;
+
+  btnContainer.innerHTML = "";
+
+  data.forEach((cat) => {
+    const currentBtn = cat.category_id == currentId;
+    // console.log(currentBtn, typeof cat.category_id, typeof currentId);
+
+    const btn = document.createElement("a");
+    btn.setAttribute("id", cat.category_id);
+    btn.setAttribute(
+      "class",
+      `btn ${
+        currentBtn
+          ? "bg-red-button text-white font-semibold"
+          : "bg-gray-600/15 text-gray-600 font-medium"
+      } hover:bg-red-button hover:text-white hover:font-semibold`
+    );
+    btn.setAttribute(
+      "onclick",
+      `loadCategories('${cat.category_id}'); loadData('${cat.category_id}', false)`
+    );
+    btn.innerText = cat.category;
+    btnContainer.appendChild(btn);
+  });
+};
+
+/* SHOW DATA OF THE SPECIFIC CATEGORY  */
 const showData = (videos) => {
   if (videos.length) {
     videoContainer.setAttribute(
@@ -145,7 +114,7 @@ const showData = (videos) => {
         const postedDateStatus = document.createElement("div");
         postedDateStatus.setAttribute(
           "class",
-          "bg-black text-white text-[10px] absolute right-3 bottom-3 py-1 px-[5px] rounded"
+          "bg-black text-white text-[10px] absolute right-5 bottom-3 py-1 px-[5px] rounded"
         );
         postedDateStatus.innerHTML = `<span>${H}</span>hrs <span>${M} </span>min ago`;
         card.children[0].appendChild(postedDateStatus);
@@ -195,11 +164,13 @@ const showData = (videos) => {
   }
 };
 
+/* SORT THE DATA IN DESCENDING ORDER AS VIEWS */
 const sorter = (isSorting) => {
   // isSorted = isSorting;
   loadData(currentId, isSorting);
 };
 
+/* SECOND TO HOURS & MINUIT'S */
 const secondeToTime = (second) => {
   const s = parseInt(second);
 
@@ -208,8 +179,8 @@ const secondeToTime = (second) => {
   return [H, M];
 };
 
-/* load the categories */
+/* LOAD THE CATEGORIES */
 loadCategories();
 
-/* load the videos */
+/* LOAD THE VIDEOS */
 loadData();
